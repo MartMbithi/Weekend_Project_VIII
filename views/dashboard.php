@@ -27,7 +27,7 @@ require_once('../app/partials/head.php');
                             <header class="page-title-bar">
                                 <div class="d-flex flex-column flex-md-row">
                                     <p class="lead">
-                                        <span class="font-weight-bold">Hi, <?php echo $_SESSION['user_full_name']; ?>.</span> <span class="d-block text-muted">Here’s what’s happening with your business today.</span>
+                                        <span class="font-weight-bold">Hi, <?php echo $_SESSION['user_full_names']; ?>.</span> <span class="d-block text-muted">Here’s what’s happening with your business today.</span>
                                     </p>
                                     <div class="ml-auto">
                                         <!-- .dropdown -->

@@ -5,15 +5,15 @@ if (isset($_POST['Login'])) {
     $user_login_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['user_login_password'])));
 
     /* Persist */
-    $stmt = $mysqli->prepare("SELECT user_id, user_full_name, user_login_username, user_login_password, user_access_level FROM users WHERE user_login_username=? AND user_login_password=?");
-    $stmt->bind_param('ss', $user_login_username, $user_login_password);
+    $stmt = $mysqli->prepare("SELECT user_id, user_full_names, user_login_username, user_login_password, user_access_level FROM users
+    WHERE user_login_username = '{$user_login_username}' AND user_login_password= '{$user_login_password}'");
     $stmt->execute();
-    $stmt->bind_result($user_id, $user_full_name, $user_login_username, $user_login_password, $user_access_level);
+    $stmt->bind_result($user_id, $user_full_names, $user_login_username, $user_login_password, $user_access_level);
     $rs = $stmt->fetch();
 
     /* Session Variables */
     $_SESSION['user_id'] = $user_id;
-    $_SESSION['user_full_name'] = $user_full_name;
+    $_SESSION['user_full_names'] = $user_full_names;
     $_SESSION['user_access_level'] = $user_access_level;
 
     if (
