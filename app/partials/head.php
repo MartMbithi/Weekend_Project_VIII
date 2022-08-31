@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="../assets/stylesheets/theme.min.css" data-skin="default">
     <link rel="stylesheet" href="../assets/stylesheets/theme-dark.min.css" data-skin="dark">
     <link rel="stylesheet" href="../assets/stylesheets/custom.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="../assets/vendor/toastr/toastr.min.css">
     <script>
         var skin = localStorage.getItem('skin') || 'default';
         var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
@@ -26,4 +28,11 @@
         // add loading class to html immediately
         document.querySelector('html').classList.add('loading');
     </script><!-- END THEME STYLES -->
+    <?php
+    /* Alert Sesion Via Alerts */
+    if (isset($_SESSION['success'])) {
+        $success = $_SESSION['success'];
+        unset($_SESSION['success']);
+    }
+    ?>
 </head>

@@ -1,10 +1,11 @@
 <?php
 session_start();
+require_once('../app/settings/config.php');
+require_once('../app/helpers/authentication.php');
 require_once('../app/partials/head.php');
 ?>
 
 <body>
-
     <main class="auth auth-floated">
         <div id="announcement" class="auth-announcement" style="background-image: url(../assets/images/avatars/background.jpg);">
         </div>
