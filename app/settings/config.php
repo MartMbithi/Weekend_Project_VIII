@@ -2,5 +2,5 @@
 $dbuser = "root";
 $dbpass = "";
 $host = "localhost";
-$db = "iAfya";
+$db = "medical_lab_system";
 $mysqli = new mysqli($host, $dbuser, $dbpass, $db);
