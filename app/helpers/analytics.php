@@ -1,15 +1,15 @@
 <?php
 /* Receptionists */
-$query = "SELECT COUNT(*)  FROM uses WHERE user_acess_level = 'Receptionist' ";
+$query = "SELECT COUNT(*)  FROM users WHERE user_access_level = 'Receptionist' ";
 $stmt = $mysqli->prepare($query);
 $stmt->execute();
-$stmt->bind_result($patient);
+$stmt->bind_result($receptionist);
 $stmt->fetch();
 $stmt->close();
 
 
 /* Lab Technicials */
-$query = "SELECT COUNT(*)  FROM uses WHERE user_acess_level = 'Lab Technician' ";
+$query = "SELECT COUNT(*)  FROM users WHERE user_access_level = 'Lab Technician' ";
 $stmt = $mysqli->prepare($query);
 $stmt->execute();
 $stmt->bind_result($lab_technician);
@@ -17,7 +17,7 @@ $stmt->fetch();
 $stmt->close();
 
 /* Patients */
-$query = "SELECT COUNT(*)  FROM uses WHERE user_acess_level = 'Patient' ";
+$query = "SELECT COUNT(*)  FROM users WHERE user_access_level = 'Patient' ";
 $stmt = $mysqli->prepare($query);
 $stmt->execute();
 $stmt->bind_result($patient);
