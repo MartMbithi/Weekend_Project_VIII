@@ -25,11 +25,11 @@ $stmt->fetch();
 $stmt->close();
 
 
-/* Recored Lab Tests */
-$query = "SELECT COUNT(*)  FROM patient_tests ";
+/* Recorded Lab Tests Categories */
+$query = "SELECT COUNT(*)  FROM tests ";
 $stmt = $mysqli->prepare($query);
 $stmt->execute();
-$stmt->bind_result($patient_tests);
+$stmt->bind_result($tests);
 $stmt->fetch();
 $stmt->close();
 

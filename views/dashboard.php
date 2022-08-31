@@ -77,12 +77,16 @@ require_once('../app/partials/head.php');
                                                         </p>
                                                     </a> <!-- /.metric -->
                                                 </div><!-- /metric column -->
+                                            </div>
+                                        </div><!-- metric column -->
+                                        <div class="col-lg-12">
+                                            <div class="metric-row metric-flush">
                                                 <div class="col">
                                                     <!-- .metric -->
-                                                    <a href="patient_tests" class="metric metric-bordered align-items-center">
-                                                        <h2 class="metric-label">Recorded Lab Tests </h2>
+                                                    <a href="tests" class="metric metric-bordered align-items-center">
+                                                        <h2 class="metric-label">Lab Test Categories</h2>
                                                         <p class="metric-value h3">
-                                                            <span class="value"><?php echo $patient_tests; ?></span>
+                                                            <span class="value"><?php echo $tests; ?></span>
                                                         </p>
                                                     </a> <!-- /.metric -->
                                                 </div><!-- /metric column -->
