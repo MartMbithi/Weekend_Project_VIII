@@ -60,6 +60,7 @@ if (isset($_POST['Add_User'])) {
     $user_access_level = mysqli_real_escape_string($mysqli, $_POST['user_access_level']);
     $new_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['new_password'])));
     $confirm_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['confirm_password'])));
+    $user_login_username = mysqli_escape_string($mysqli, $_POST['user_login_username']);
 
     /* Do Passwords Match */
     if ($confirm_password != $new_password) {
@@ -99,8 +100,8 @@ if (isset($_POST['Update_User'])) {
     $user_access_level = mysqli_real_escape_string($mysqli, $_POST['user_access_level']);
 
     /* Persist */
-    $sql = "UPDATE users SET user_full_names = '{$user_full_names}', user_idno = '{$user_idno}', user_phone_number = '{$user_phone_number}', user_address = '{$user_address}'
-    WHERE user_id = '{$user_id}'";
+    $sql = "UPDATE users SET user_full_names = '{$user_full_names}', user_idno = '{$user_idno}', user_phone_number = '{$user_phone_number}', user_address = '{$user_address}',
+    user_acess_level = '{$user_access_level}' WHERE user_id = '{$user_id}'";
 
     if (mysqli_query($mysqli, $sql)) {
         $success = "Account updated";
