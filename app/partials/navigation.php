@@ -39,13 +39,13 @@
                         <a class="nav-link" href="#" id="navbarLevelMenuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="mr-1">Lab Tests</span> <i class="fas fa-angle-down ml-auto"></i></a>
                         <ul class="dropdown-menu" aria-labelledby="navbarLevelMenuDropdown">
                             <li>
-                                <a class="dropdown-item" href="patients">Test Categories</a>
+                                <a class="dropdown-item" href="tests">Test Categories</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="receptionists">Patient Tests</a>
+                                <a class="dropdown-item" href="patient_tests">Patient Tests</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="lab_technicians">Tests Results</a>
+                                <a class="dropdown-item" href="tests_results">Tests Results</a>
                             </li>
                         </ul>
                     </li><!-- /Level Menu -->

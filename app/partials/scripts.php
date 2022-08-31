@@ -4,6 +4,7 @@
 <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script> <!-- END BASE JS -->
 <!-- BEGIN PLUGINS JS -->
 <script src="../assets/vendor/particles.js/particles.js"></script>
+
 <script>
     /**
      * Keep in mind that your scripts may not always be executed after the theme is completely ready,
@@ -14,6 +15,33 @@
         particlesJS.load('announcement', '../assets/javascript/pages/particles.json');
     })
 </script> <!-- END PLUGINS JS -->
+<!-- Data Tables CDN -->
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+<script>
+    /* Init Tool Tip Js */
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    /* Init Data Tables */
+    $(document).ready(function() {
+        $('.table').DataTable();
+    });
+
+    $(document).ready(function() {
+        $('.report_table').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+    });
+</script>
 <!-- BEGIN THEME JS -->
 <script src="../assets/javascript/theme.min.js"></script>
 <!-- Toastr -->

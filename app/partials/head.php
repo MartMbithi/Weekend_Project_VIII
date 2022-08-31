@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="../assets/stylesheets/theme.min.css" data-skin="default">
     <link rel="stylesheet" href="../assets/stylesheets/theme-dark.min.css" data-skin="dark">
     <link rel="stylesheet" href="../assets/stylesheets/custom.css">
+    <!-- Data Tables CDN-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css" />
     <!-- Toastr -->
     <link rel="stylesheet" href="../assets/vendor/toastr/toastr.min.css">
     <script>
