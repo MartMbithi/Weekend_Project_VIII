@@ -162,13 +162,21 @@ require_once('../app/partials/head.php');
                                                                                             <label for="">Number</label>
                                                                                             <input type="text" required readonly value="<?php echo $receptionist['user_number']; ?>" name="user_number" class="form-control">
                                                                                         </div>
-                                                                                        <div class="form-group col-md-6">
+                                                                                        <div class="form-group col-md-4">
                                                                                             <label for="">National ID Number</label>
                                                                                             <input type="number" name="user_idno" value="<?php echo $receptionist['user_idno']; ?>" class="form-control">
                                                                                         </div>
-                                                                                        <div class="form-group col-md-6">
+                                                                                        <div class="form-group col-md-4">
                                                                                             <label for="">Phone Number</label>
                                                                                             <input type="number" required name="user_phone_number" value="<?php echo $receptionist['user_phone_number']; ?>" class="form-control">
+                                                                                        </div>
+                                                                                        <div class="form-group col-md-4">
+                                                                                            <label for="">Access Level</label>
+                                                                                            <select required name="user_access_level" class="form-control">
+                                                                                                <option><?php echo $receptionist['user_access_level']; ?></option>
+                                                                                                <option>Lab Technician</option>
+                                                                                                <option>Chief Lab Technician</option>
+                                                                                            </select>
                                                                                         </div>
                                                                                         <div class="form-group col-md-12">
                                                                                             <label for="">Address</label>

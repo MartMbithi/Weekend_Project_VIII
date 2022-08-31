@@ -101,7 +101,7 @@ if (isset($_POST['Update_User'])) {
 
     /* Persist */
     $sql = "UPDATE users SET user_full_names = '{$user_full_names}', user_idno = '{$user_idno}', user_phone_number = '{$user_phone_number}', user_address = '{$user_address}',
-    user_acess_level = '{$user_access_level}' WHERE user_id = '{$user_id}'";
+    user_access_level = '{$user_access_level}' WHERE user_id = '{$user_id}'";
 
     if (mysqli_query($mysqli, $sql)) {
         $success = "Account updated";
