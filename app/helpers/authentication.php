@@ -37,12 +37,12 @@ if (isset($_POST['Reset_Password_Step_1'])) {
     $res = mysqli_query($mysqli, $sql);
     if (mysqli_num_rows($res) > 0) {
         /* Redirect User To Confirm Password */
-        $_SESSION['success'] = 'Proceed To Confirm Password';
+        $_SESSION['success'] = 'Proceed to confirm your passwords';
         $_SESSION['user_login_username'] = $user_login_username;
         header('Location: confirm_password');
         exit;
     } else {
-        $err = "Email Address  Does Not Exist";
+        $err = "Login username does not exist";
     }
 }
 
@@ -61,6 +61,9 @@ if (isset($_POST['Reset_Password_Step_2'])) {
 
         if (mysqli_query($mysqli, $sql)) {
             /* Redirect User To Login With Success Alert */
+            $_SESSION['success'] = 'Password reset, proceed to login';
+            header('Location: ../');
+            exit;
         } else {
             $err = "Failed, try again";
         }
