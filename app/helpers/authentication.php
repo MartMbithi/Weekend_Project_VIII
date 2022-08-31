@@ -31,6 +31,19 @@ if (isset($_POST['Login'])) {
 /* Reset Password Step 1  */
 if (isset($_POST['Reset_Password_Step_1'])) {
     $user_login_username = mysqli_real_escape_string($mysqli, $_POST['user_login_username']);
+
+    /* Does this username exist */
+    $sql = "SELECT * FROM  users WHERE user_login_username= '{$user_login_username}'";
+    $res = mysqli_query($mysqli, $sql);
+    if (mysqli_num_rows($res) > 0) {
+        /* Redirect User To Confirm Password */
+        $_SESSION['success'] = 'Proceed To Confirm Password';
+        $_SESSION['user_login_username'] = $user_login_username;
+        header('Location: confirm_password');
+        exit;
+    } else {
+        $err = "Email Address  Does Not Exist";
+    }
 }
 
 /* Reset Password Step 2 */

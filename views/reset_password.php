@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once('../app/settings/config.php');
+require_once('../app/helpers/authentication.php');
 require_once('../app/partials/head.php');
 ?>
 
