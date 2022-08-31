@@ -3,8 +3,8 @@ session_start();
 require_once('../app/settings/config.php');
 require_once('../app/settings/checklogin.php');
 check_login();
+require_once('../app/helpers/users.php');
 require_once('../app/settings/codeGen.php');
-require_once('../app/helpers/analytics.php');
 require_once('../app/partials/head.php');
 
 ?>
@@ -55,6 +55,7 @@ require_once('../app/partials/head.php');
                                                 <div class="row">
                                                     <div class="form-group col-md-8">
                                                         <label for="">Full Names</label>
+                                                        <input type="text" required name="user_access_level" value="Patient" class="form-control">
                                                         <input type="text" required name="user_full_names" class="form-control">
                                                     </div>
                                                     <div class="form-group col-md-4">
