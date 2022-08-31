@@ -55,7 +55,7 @@ require_once('../app/partials/head.php');
                                                 <div class="row">
                                                     <div class="form-group col-md-8">
                                                         <label for="">Full Names</label>
-                                                        <input type="text" required name="user_access_level" value="Patient" class="form-control">
+                                                        <input type="hidden" required name="user_access_level" value="Patient" class="form-control">
                                                         <input type="text" required name="user_full_names" class="form-control">
                                                     </div>
                                                     <div class="form-group col-md-4">

@@ -20,11 +20,11 @@ if (isset($_POST['Add_Patient'])) {
         }
     } else {
         /* Persist */
-        $sql = "INSERT INTO uses (user_full_name, user_number, user_idno, user_phone_number, user_address, user_access_level)
-        VALUES('{$user_full_name}', '{$user_number}', '{$user_idno}', '{$user_phone_number}', '{$user_address}', '{$user_access_level}')";
+        $sql = "INSERT INTO users (user_full_names, user_number, user_idno, user_phone_number, user_address, user_access_level)
+        VALUES('{$user_full_names}', '{$user_number}', '{$user_idno}', '{$user_phone_number}', '{$user_address}', '{$user_access_level}')";
 
         if (mysqli_query($mysqli, $sql)) {
-            $sucess = "Patient registered";
+            $success = "Patient registered";
         } else {
             $err  = "Failed, please try again";
         }
@@ -40,7 +40,7 @@ if (isset($_POST['Update_Patient'])) {
     $user_address = mysqli_real_escape_string($mysqli, $_POST['user_address']);
 
     /* Persist */
-    $sql = "UPDATE users SET user_full_names = '{$user_full_name}', user_idno = '{$user_idno}', user_phone_number = '{$user_phone_number}', user_address = '{$user_address}'
+    $sql = "UPDATE users SET user_full_names = '{$user_full_names}', user_idno = '{$user_idno}', user_phone_number = '{$user_phone_number}', user_address = '{$user_address}'
     WHERE user_id = '{$user_id}'";
 
     if (mysqli_query($mysqli, $sql)) {
@@ -77,11 +77,11 @@ if (isset($_POST['Add_User'])) {
             }
         } else {
             /* Persist */
-            $sql = "INSERT INTO uses (user_full_name, user_number, user_idno, user_phone_number, user_address, user_access_level, user_login_username, user_login_password)
-            VALUES('{$user_full_name}', '{$user_number}', '{$user_idno}', '{$user_phone_number}', '{$user_address}', '{$user_access_level}', '{$user_login_username}', '{$confirm_password}')";
+            $sql = "INSERT INTO users (user_full_names, user_number, user_idno, user_phone_number, user_address, user_access_level, user_login_username, user_login_password)
+            VALUES('{$user_full_names}', '{$user_number}', '{$user_idno}', '{$user_phone_number}', '{$user_address}', '{$user_access_level}', '{$user_login_username}', '{$confirm_password}')";
 
             if (mysqli_query($mysqli, $sql)) {
-                $sucess = $user_access_level . " account registered";
+                $success = $user_access_level . " account registered";
             } else {
                 $err  = "Failed, please try again";
             }
@@ -99,7 +99,7 @@ if (isset($_POST['Update_User'])) {
     $user_access_level = mysqli_real_escape_string($mysqli, $_POST['user_access_level']);
 
     /* Persist */
-    $sql = "UPDATE users SET user_full_names = '{$user_full_name}', user_idno = '{$user_idno}', user_phone_number = '{$user_phone_number}', user_address = '{$user_address}'
+    $sql = "UPDATE users SET user_full_names = '{$user_full_names}', user_idno = '{$user_idno}', user_phone_number = '{$user_phone_number}', user_address = '{$user_address}'
     WHERE user_id = '{$user_id}'";
 
     if (mysqli_query($mysqli, $sql)) {

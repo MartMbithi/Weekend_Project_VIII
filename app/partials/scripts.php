@@ -41,6 +41,12 @@
             ]
         });
     });
+    /* Show Selected File Name */
+    document.querySelector('.custom-file-input').addEventListener('change', function(e) {
+        var fileName = document.getElementById("myInput").files[0].name;
+        var nextSibling = e.target.nextElementSibling
+        nextSibling.innerText = fileName
+    })
 </script>
 <!-- BEGIN THEME JS -->
 <script src="../assets/javascript/theme.min.js"></script>
