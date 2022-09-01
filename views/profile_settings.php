@@ -52,8 +52,38 @@ require_once('../app/partials/head.php');
                                                                 Personal Information
                                                             </h6>
                                                         </div>
+                                                        <hr>
                                                         <div class="card-body">
-
+                                                            <form method="post" enctype="multipart/form-data" role="form">
+                                                                <div class="row">
+                                                                    <div class="form-group col-md-8">
+                                                                        <label for="">Full Names</label>
+                                                                        <input type="hidden" required name="user_access_level" value="<?php echo $user['user_access_level']; ?>" class="form-control">
+                                                                        <input type="hidden" required name="user_id" value="<?php echo $user['user_id']; ?>" class="form-control">
+                                                                        <input type="text" required value="<?php echo $user['user_full_names']; ?>" name="user_full_names" class="form-control">
+                                                                    </div>
+                                                                    <div class="form-group col-md-4">
+                                                                        <label for="">Number</label>
+                                                                        <input type="text" required readonly value="<?php echo $user['user_number']; ?>" name="user_number" class="form-control">
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="">National ID Number</label>
+                                                                        <input type="number" name="user_idno" value="<?php echo $user['user_idno']; ?>" class="form-control">
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="">Phone Number</label>
+                                                                        <input type="number" required name="user_phone_number" value="<?php echo $user['user_phone_number']; ?>" class="form-control">
+                                                                    </div>
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="">Address</label>
+                                                                        <textarea type="text" name="user_address" rows="2" class="form-control" id="exampleInputEmail1"><?php echo $user['user_address']; ?></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-right">
+                                                                    <button type="submit" name="Update_User" class="btn btn-primary">Update Profile</button>
+                                                                </div>
+                                                                <br>
+                                                            </form>
                                                         </div><!-- /.card-body -->
                                                     </div>
                                                 </div>
