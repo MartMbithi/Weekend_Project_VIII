@@ -130,10 +130,10 @@ require_once('../app/partials/head.php');
                                                                     </td>
                                                                     <td><?php echo $tests['test_details']; ?></td>
                                                                     <td class="align-middle text-center">
-                                                                        <a data-toggle="modal" href="#update_<?php echo $tests['test_id']; ?>" class="btn btn-sm btn-icon btn-secondary">
+                                                                        <a data-toggle="modal" href="#update_<?php echo $tests['patient_test_id']; ?>" class="btn btn-sm btn-icon btn-secondary">
                                                                             <i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span>
                                                                         </a>
-                                                                        <a data-toggle="modal" href="#delete_<?php echo $tests['test_id']; ?>" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt"></i>
+                                                                        <a data-toggle="modal" href="#delete_<?php echo $tests['patient_test_id']; ?>" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt"></i>
                                                                             <span class="sr-only">Remove</span>
                                                                         </a>
                                                                     </td>
@@ -155,6 +155,8 @@ require_once('../app/partials/head.php');
                                                                                     <div class="row">
                                                                                         <div class="form-group col-md-12">
                                                                                             <label for="">Laboratory Test Name</label>
+                                                                                            <input type="hidden" required value="<?php echo $tests['patient_test_id']; ?>" name="patient_test_id" class="form-control">
+                                                                                            
                                                                                             <select type="text" required name="patient_test_test_id" class="form-control">
                                                                                                 <option value="<?php echo $tests['test_id']; ?>"><?php echo $tests['test_ref'] . ' ' . $tests['test_name']; ?></option>
                                                                                                 <?php
