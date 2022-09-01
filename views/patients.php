@@ -118,14 +118,56 @@ require_once('../app/partials/head.php');
                                                                     <td><?php echo $patients['user_phone_number']; ?></td>
                                                                     <td><?php echo $patients['user_address']; ?></td>
                                                                     <td class="align-middle text-center">
-                                                                        <a data-toggle="modal" href="#update_<?php echo $patients['user_id']; ?>" class="btn btn-sm btn-icon btn-secondary">
+                                                                        <a title="Allow Login" data-toggle="modal" href="#allow_login_<?php echo $patients['user_id']; ?>" class="btn btn-sm btn-icon btn-secondary">
+                                                                            <i class="fa fa-lock"></i> <span class="sr-only">Allow Login</span>
+                                                                        </a>
+                                                                        <a title="Edit" data-toggle="modal" href="#update_<?php echo $patients['user_id']; ?>" class="btn btn-sm btn-icon btn-secondary">
                                                                             <i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span>
                                                                         </a>
-                                                                        <a data-toggle="modal" href="#delete_<?php echo $patients['user_id']; ?>" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt"></i>
+                                                                        <a title="Remove" data-toggle="modal" href="#delete_<?php echo $patients['user_id']; ?>" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt"></i>
                                                                             <span class="sr-only">Remove</span>
                                                                         </a>
                                                                     </td>
                                                                 </tr>
+                                                                <!-- Update Modal -->
+                                                                <div class="modal fade fixed-right" id="allow_login_<?php echo $patients['user_id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                                                                    <div class="modal-dialog  modal-xl" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header align-items-center">
+                                                                                <div class="modal-title">
+                                                                                    <h6 class="mb-0">Allow <?php echo $patients['user_full_names']; ?> To Login</h6>
+                                                                                </div>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <form method="post" enctype="multipart/form-data" role="form">
+                                                                                    <div class="row">
+                                                                                        <div class="form-group col-md-4">
+                                                                                            <label for="">Login Username</label>
+                                                                                            <input type="hidden" required name="user_id" value="<?php echo $patients['user_id']; ?>" class="form-control">
+                                                                                            <input type="password" required name="user_login_username" class="form-control">
+                                                                                        </div>
+                                                                                        <div class="form-group col-md-4">
+                                                                                            <label for="">Login Password</label>
+                                                                                            <input type="password" required readonly name="new_password" class="form-control">
+                                                                                        </div>
+                                                                                        <div class="form-group col-md-4">
+                                                                                            <label for="">Confirm Login Password</label>
+                                                                                            <input type="password" name="confirm_password" class="form-control">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <button type="submit" name="Allow_Patient_Login" class="btn btn-primary">Allow Login</button>
+                                                                                    </div>
+                                                                                    <br>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
                                                                 <!-- Update Modal -->
                                                                 <div class="modal fade fixed-right" id="update_<?php echo $patients['user_id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
                                                                     <div class="modal-dialog  modal-xl" role="document">

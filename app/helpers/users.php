@@ -50,6 +50,28 @@ if (isset($_POST['Update_Patient'])) {
     }
 }
 
+/* Allow Patient To Login */
+if (isset($_POST['Allow_Patient_Login'])) {
+    $user_id = mysqli_real_escape_string($mysqli, $_POST['user_id']);
+    $user_login_username = mysqli_real_escape_string($mysqli, $_POST['user_login_username']);
+    $new_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['new_password'])));
+    $confirm_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['confirm_password'])));
+
+    /* Check If Passwords Match */
+    if ($confirm_password != $new_password) {
+        $err = "Passwords does not match";
+    } else {
+        /* Persist */
+        $sql = "UPDATE users SET user_login_username = '{$user_login_username}', user_login_password = '{$confirm_password}'
+        WHERE user_id = '{$user_id}'";
+        if (mysqli_query($mysqli, $sql)) {
+            $success = "Login permissions allowed";
+        } else {
+            $err = "Failed, please try again";
+        }
+    }
+}
+
 /* Add Receptionist  / Lab Tect / Cheif Lab Tech*/
 if (isset($_POST['Add_User'])) {
     $user_full_names = mysqli_real_escape_string($mysqli, $_POST['user_full_names']);
