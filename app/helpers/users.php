@@ -125,3 +125,37 @@ if (isset($_POST['Delete_User'])) {
 }
 
 
+/* Update User Login Details */
+if (isset($_POST['Update_User_Auth'])) {
+    $user_id = mysqli_real_escape_string($mysqli, $_POST['user_id']);
+    $user_login_username = mysqli_real_escape_string($mysqli, $_POST['user_login_username']);
+    $old_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['old_password'])));
+    $new_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['new_password'])));
+    $confirm_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['confirm_password'])));
+
+    if ($new_password != $confirm_password) {
+        /* Check If Passwords Match */
+        $err = "Passwords does not match";
+    } else {
+
+        /* Does Old Password Match */
+        $sql = "SELECT * FROM  users   WHERE user_id = '{$user_id}'";
+        $res = mysqli_query($mysqli, $sql);
+        if (mysqli_num_rows($res) > 0) {
+            $row = mysqli_fetch_assoc($res);
+            if ($row['user_login_password'] != $old_password) {
+                $err = "Enter correct old password";
+            } else {
+                /* Persist Password Update */
+                $update_sql = "UPDATE users SET user_login_username = '{$user_login_username}',  user_login_password  = '{$confirm_password}' 
+                WHERE user_id = '{$user_id}'";
+                /* Prepare */
+                if (mysqli_query($mysqli, $update_sql)) {
+                    $success = "Password updated";
+                } else {
+                    $err = "Failed, please try again";
+                }
+            }
+        }
+    }
+}
