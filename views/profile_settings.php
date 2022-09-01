@@ -95,9 +95,34 @@ require_once('../app/partials/head.php');
                                                                 Authentication Information
                                                             </h6>
                                                         </div>
+                                                        <hr>
                                                         <div class="card-body">
-                                                            <!-- .table -->
+                                                            <form method="post" enctype="multipart/form-data" role="form">
+                                                                <div class="row">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="">Login Username</label>
+                                                                        <input type="hidden" required name="user_id" value="<?php echo $user['user_id']; ?>" class="form-control">
+                                                                        <input type="text" required value="<?php echo $user['user_login_username']; ?>" name="user_login_username" class="form-control">
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="">Old Passsword</label>
+                                                                        <input type="password" required name="user_number" class="form-control">
+                                                                    </div>
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="">New Password</label>
+                                                                        <input type="password" name="new_password" class="form-control">
+                                                                    </div>
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="">Confirm New Passsword</label>
+                                                                        <input type="password" required name="confirm_password" class="form-control">
+                                                                    </div>
 
+                                                                </div>
+                                                                <div class="text-right">
+                                                                    <button type="submit" name="Update_User_Auth" class="btn btn-primary">Update</button>
+                                                                </div>
+                                                                <br>
+                                                            </form>
                                                         </div><!-- /.card-body -->
                                                     </div>
                                                 </div>
