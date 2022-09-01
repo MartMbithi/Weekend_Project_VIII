@@ -49,4 +49,53 @@ if (isset($_POST['Delete_Test_Category'])) {
 }
 
 
-/* ---------------------------------------------------------- */
+/* ------------------------- LABORATORY TESTS --------------------------------- */
+
+/* Add Tests */
+if (isset($_POST['Add_Patient_Tests_record'])) {
+    $patient_test_test_id = mysqli_real_escape_string($mysqli, $_POST['patient_test_test_id']);
+    $patient_test_patient_id = mysqli_real_escape_string($mysqli, $_POST['patient_test_patient_id']);
+    $patient_test_done_by = mysqli_real_escape_string($mysqli, $_SESSION['patient_test_done_by']);
+    $patient_test_date_created = mysqli_real_escape_string($mysqli, date('d, M Y'));
+
+    /* Persist */
+    $sql = "INSERT INTO patient_tests (patient_test_test_id, patient_test_patient_id, patient_test_done_by, patient_test_date_created)
+    VALUES('{$patient_test_test_id}', '{$patient_test_patient_id}', '{$patient_test_done_by}', '{$patient_test_date_created}')";
+
+    if (mysqli_query($mysqli, $sql)) {
+        $success = "Laboratory test record added";
+    } else {
+        $err = "Failed, please try again";
+    }
+}
+
+
+/* Update Tests  */
+if (isset($_POST['Update_Patient_Tests_record'])) {
+    $patient_test_id = mysqli_real_escape_string($mysqli, $_POST['patient_test_id']);
+    $patient_test_test_id = mysqli_real_escape_string($mysqli, $_POST['patient_test_test_id']);
+
+    /* Persist */
+    $sql = "UPDATE patient_tests SET patient_test_test_id = '{$patient_test_test_id}' WHERE patient_test_id  = '{$patient_test_id}'";
+
+    if (mysqli_query($mysqli, $sql)) {
+        $success = "Laboratory test record updated";
+    } else {
+        $err = "Failed, please try again";
+    }
+}
+
+
+/* Delete Tests  */
+if (isset($_POST['Delete_Patient_Tests_record'])) {
+    $patient_test_id = mysqli_real_escape_string($mysqli, $_POST['patient_test_id']);
+
+    /* Persist */
+    $sql = "DELETE FROM  patient_tests WHERE patient_test_id = '{$patient_test_id}'";
+
+    if (mysqli_query($mysqli, $sql)) {
+        $success = "Laboratory test record deleted";
+    } else {
+        $err = "Failed, please try again";
+    }
+}
