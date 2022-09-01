@@ -55,8 +55,8 @@ if (isset($_POST['Delete_Test_Category'])) {
 if (isset($_POST['Add_Patient_Tests_record'])) {
     $patient_test_test_id = mysqli_real_escape_string($mysqli, $_POST['patient_test_test_id']);
     $patient_test_patient_id = mysqli_real_escape_string($mysqli, $_POST['patient_test_patient_id']);
-    $patient_test_done_by = mysqli_real_escape_string($mysqli, $_SESSION['patient_test_done_by']);
-    $patient_test_date_created = mysqli_real_escape_string($mysqli, date('d, M Y'));
+    $patient_test_done_by = mysqli_real_escape_string($mysqli, $_SESSION['user_id']);
+    $patient_test_date_created = mysqli_real_escape_string($mysqli, date('d M Y'));
 
     /* Persist */
     $sql = "INSERT INTO patient_tests (patient_test_test_id, patient_test_patient_id, patient_test_done_by, patient_test_date_created)
