@@ -57,10 +57,11 @@ if (isset($_POST['Add_Patient_Tests_record'])) {
     $patient_test_patient_id = mysqli_real_escape_string($mysqli, $_POST['patient_test_patient_id']);
     $patient_test_done_by = mysqli_real_escape_string($mysqli, $_SESSION['user_id']);
     $patient_test_date_created = mysqli_real_escape_string($mysqli, date('d M Y'));
+    $patient_test_description = mysqli_real_escape_string($mysqli, $_POST['patient_test_description']);
 
     /* Persist */
-    $sql = "INSERT INTO patient_tests (patient_test_test_id, patient_test_patient_id, patient_test_done_by, patient_test_date_created)
-    VALUES('{$patient_test_test_id}', '{$patient_test_patient_id}', '{$patient_test_done_by}', '{$patient_test_date_created}')";
+    $sql = "INSERT INTO patient_tests (patient_test_test_id, patient_test_patient_id, patient_test_done_by, patient_test_date_created, patient_test_description)
+    VALUES('{$patient_test_test_id}', '{$patient_test_patient_id}', '{$patient_test_done_by}', '{$patient_test_date_created}', '{$patient_test_description}')";
 
     if (mysqli_query($mysqli, $sql)) {
         $success = "Laboratory test record added";
@@ -74,9 +75,11 @@ if (isset($_POST['Add_Patient_Tests_record'])) {
 if (isset($_POST['Update_Patient_Tests_record'])) {
     $patient_test_id = mysqli_real_escape_string($mysqli, $_POST['patient_test_id']);
     $patient_test_test_id = mysqli_real_escape_string($mysqli, $_POST['patient_test_test_id']);
+    $patient_test_description = mysqli_real_escape_string($mysqli, $_POST['patient_test_description']);
+
 
     /* Persist */
-    $sql = "UPDATE patient_tests SET patient_test_test_id = '{$patient_test_test_id}' WHERE patient_test_id  = '{$patient_test_id}'";
+    $sql = "UPDATE patient_tests SET patient_test_test_id = '{$patient_test_test_id}', patient_test_description = '{$patient_test_description}' WHERE patient_test_id  = '{$patient_test_id}'";
 
     if (mysqli_query($mysqli, $sql)) {
         $success = "Laboratory test record updated";

@@ -77,6 +77,10 @@ require_once('../app/partials/head.php');
                                                             } ?>
                                                         </select>
                                                     </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="">Test Details</label>
+                                                        <textarea type="text" name="patient_test_description" rows="5" class="form-control" id="exampleInputEmail1"></textarea>
+                                                    </div>
                                                 </div>
                                                 <div class="text-right">
                                                     <button type="submit" name="Add_Patient_Tests_record" class="btn btn-primary">Add</button>
@@ -102,7 +106,7 @@ require_once('../app/partials/head.php');
                                                         <tr>
                                                             <th> Test </th>
                                                             <th> Patient </th>
-                                                            <th> Description </th>
+                                                            <th> Details </th>
                                                             <th> Manage </th>
                                                         </tr>
                                                     </thead>
@@ -128,7 +132,7 @@ require_once('../app/partials/head.php');
                                                                         <b>Name: </b> <?php echo $tests['user_full_names']; ?><br>
                                                                         <b>Contacts: </b> <?php echo $tests['user_phone_number']; ?>
                                                                     </td>
-                                                                    <td><?php echo $tests['test_details']; ?></td>
+                                                                    <td><?php echo $tests['patient_test_description']; ?></td>
                                                                     <td class="align-middle text-center">
                                                                         <a data-toggle="modal" href="#update_<?php echo $tests['patient_test_id']; ?>" class="btn btn-sm btn-icon btn-secondary">
                                                                             <i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span>
@@ -156,7 +160,6 @@ require_once('../app/partials/head.php');
                                                                                         <div class="form-group col-md-12">
                                                                                             <label for="">Laboratory Test Name</label>
                                                                                             <input type="hidden" required value="<?php echo $tests['patient_test_id']; ?>" name="patient_test_id" class="form-control">
-                                                                                            
                                                                                             <select type="text" required name="patient_test_test_id" class="form-control">
                                                                                                 <option value="<?php echo $tests['test_id']; ?>"><?php echo $tests['test_ref'] . ' ' . $tests['test_name']; ?></option>
                                                                                                 <?php
@@ -167,6 +170,10 @@ require_once('../app/partials/head.php');
                                                                                                 <?php }
                                                                                                 } ?>
                                                                                             </select>
+                                                                                        </div>
+                                                                                        <div class="form-group col-md-12">
+                                                                                            <label for="">Details</label>
+                                                                                            <textarea type="text" name="patient_test_description" rows="5" class="form-control" id="exampleInputEmail1"><?php echo $tests['patient_test_description']; ?></textarea>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="text-right">
