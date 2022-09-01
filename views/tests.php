@@ -119,7 +119,7 @@ require_once('../app/partials/head.php');
                                                                         <div class="modal-content">
                                                                             <div class="modal-header align-items-center">
                                                                                 <div class="modal-title">
-                                                                                    <h6 class="mb-0">Update <?php echo $tests['name']; ?> Details</h6>
+                                                                                    <h6 class="mb-0">Update <?php echo $tests['test_name']; ?> Details</h6>
                                                                                 </div>
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                     <span aria-hidden="true">&times;</span>

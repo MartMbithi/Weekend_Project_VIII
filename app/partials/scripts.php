@@ -47,6 +47,10 @@
         var nextSibling = e.target.nextElementSibling
         nextSibling.innerText = fileName
     })
+    /* Prevent Double Submissions */
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
 </script>
 <!-- BEGIN THEME JS -->
 <script src="../assets/javascript/theme.min.js"></script>

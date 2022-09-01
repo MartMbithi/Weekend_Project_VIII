@@ -24,7 +24,8 @@ if (isset($_POST['Update_Lab_Test_Category'])) {
     $test_details = mysqli_real_escape_string($mysqli, $_POST['test_details']);
 
     /* Persist */
-    $sql = "UPDATE tests SET test_ref = '{$test_ref}', test_name = '{$test_name}', test_details = '{$test_details}'";
+    $sql = "UPDATE tests SET test_ref = '{$test_ref}', test_name = '{$test_name}', test_details = '{$test_details}'
+    WHERE test_id = '{$test_id}'";
 
     if (mysqli_query($mysqli, $sql)) {
         $success = "Test category updated";
