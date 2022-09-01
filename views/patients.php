@@ -147,11 +147,11 @@ require_once('../app/partials/head.php');
                                                                                         <div class="form-group col-md-4">
                                                                                             <label for="">Login Username</label>
                                                                                             <input type="hidden" required name="user_id" value="<?php echo $patients['user_id']; ?>" class="form-control">
-                                                                                            <input type="password" required name="user_login_username" class="form-control">
+                                                                                            <input type="text" required name="user_login_username" value="<?php echo $patients['user_login_username']; ?>" class="form-control">
                                                                                         </div>
                                                                                         <div class="form-group col-md-4">
                                                                                             <label for="">Login Password</label>
-                                                                                            <input type="password" required readonly name="new_password" class="form-control">
+                                                                                            <input type="password" required name="new_password" class="form-control">
                                                                                         </div>
                                                                                         <div class="form-group col-md-4">
                                                                                             <label for="">Confirm Login Password</label>
