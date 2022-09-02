@@ -200,7 +200,7 @@ require_once('../app/partials/head.php');
                                                                         <input type="hidden" name="results_approved_by" value="<?php echo $_SESSION['user_id']; ?>">
                                                                         <input type="hidden" name="result_id" value="<?php echo $tests['result_id']; ?>">
                                                                         <button type="button" class="text-center btn btn-success" data-dismiss="modal">No</button>
-                                                                        <input type="submit" name="Approve_Patient_Tests_Results" value="Delete" class="text-center btn btn-danger"><br>
+                                                                        <input type="submit" name="Approve_Patient_Tests_Results" value="Approve" class="text-center btn btn-danger"><br>
                                                                     </div>
                                                                 </form>
                                                             </div>
