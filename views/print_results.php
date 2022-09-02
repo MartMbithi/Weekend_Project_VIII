@@ -63,19 +63,14 @@ if (mysqli_num_rows($tests_sql) > 0) {
                 .patient_details{
                     float: left;
                     text-align:left;
-                    width:33.33333%;
+                    width:50%;
                 }
-                /* Doctor */
-                .doctor_details{
-                    float: right;
-                    text-align:right;
-                    width:33.33333%;
-                }
+
                 /* Appointment Details */
                 .appointment_details{
-                    float: left;
-                    text-align:center;
-                    width:33.33333%;
+                    float: right;
+                    text-align:right;
+                    width:50%;
                 }
                 /* Letter Head */
                 .letter_head{
@@ -168,15 +163,66 @@ if (mysqli_num_rows($tests_sql) > 0) {
                 <b>Printed On ' . date('d M Y') . '</b>
             </div>
             <body>
-                <h3 class="list_header" align="center">
-                    Medical Laboratory Records Management System
+                <h3 class="list_header letter_head" align="center">
+                    Medical Laboratory Records Management System <br><br>
+                    Report Number : ' . $a . $b . ' <br>
                 </h3>
                 <h3 class="list_header letter_head" align="center">
                     <hr style="width:100%" >
-                     Report Number : ' . $a . $b . ' <br>
-                    <hr style="width:100%" >
                 </h3>
                 <br>
+                <div id="textbox">
+                    <p class="patient_details list_header">
+                        <b> Test               : </b>    ' . $tests['test_ref'] . ' ' . $tests['test_name'] . '<br>
+                        <b> Patient Number     : </b>    ' . $tests['user_number'] . ' <br>
+                        <b> Patient Full Names : </b>    ' . $tests['user_full_names'] . ' <br>
+                        <b> Patient Contacts   : </b>    ' . $tests['user_phone_number'] . ' <br>
+                        <b> Date Test Done     : </b>    ' . $tests['patient_test_date_created'] . ' 
+                    </p>
+                     ';
+                    /* Get Chief Lab Techician Details */
+                    $approver_sql = mysqli_query(
+                        $mysqli,
+                        "SELECT *  FROM users WHERE user_id = '{$tests['results_approved_by']}'"
+                    );
+                    if (mysqli_num_rows($approver_sql) > 0) {
+                        while ($chief_lab_tech = mysqli_fetch_array($approver_sql)) {
+                            $html .= 
+                            ' 
+                                <p class="appointment_details list_header">
+                                    <b> Date Released               : </b>    ' . $tests['results_date_realeased'] . '<br>
+                                    <b> Approved By Number     : </b>    ' . $chief_lab_tech['user_number'] . ' <br>
+                                    <b> Approved By Name : </b>    ' . $chief_lab_tech['user_full_names'] . ' <br>
+                                    <b> Digital Signature Code : </b>    SGN-' . $paycode . ' <br>
+                                </p>          
+                            ';
+                        }
+                    } else {
+                        $html .= ' 
+                        <p class="appointment_details list_header">
+                            <b>Results Pending Approval From Chief Laboratory Technician</b>
+                        </p>     
+                    ';
+                    }
+                    $html .= ' 
+                </div> 
+                <br><br><br><br><br><br>
+                
+                <h3 class="list_header center letter_head" >
+                    Tests Details <br>
+                    <hr style="width:100%" >
+                </h3>
+                <p class="list_header">
+                    ' . $tests['patient_test_description'] . '
+                </p>
+
+                <h3 class="list_header center letter_head" >
+                    Results Details <br>
+                    <hr style="width:100%" >
+                </h3>
+                <p class="list_header">
+                    ' . $tests['results_details'] . '
+                </p>
             </body>
         </div>
     </div>';
@@ -196,7 +242,7 @@ $x = (($w - $imgWidth) / 2);
 $y = (($h - $imgHeight) / 2);
 $canvas->image($imageURL, $x, $y, $imgWidth, $imgHeight);
 $dompdf->render();
-$dompdf->stream('Laboratory Report', array("Attachment" => 1));
+$dompdf->stream('Laboratory Report ' . $a . $b, array("Attachment" => 1));
 $options = $dompdf->getOptions();
 $dompdf->set_paper('A4');
 $dompdf->set_option('isHtml5ParserEnabled', true);
