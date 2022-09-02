@@ -21,7 +21,8 @@ $tests_sql = mysqli_query(
     "SELECT *  FROM results r 
     INNER JOIN patient_tests pt ON r.results_test_id = pt.patient_test_id
     INNER JOIN tests t ON t.test_id = pt.patient_test_test_id
-    INNER JOIN users u ON u.user_id = pt.patient_test_patient_id"
+    INNER JOIN users u ON u.user_id = pt.patient_test_patient_id 
+    WHERE result_id = '{$result_id}'"
 );
 if (mysqli_num_rows($tests_sql) > 0) {
     while ($tests = mysqli_fetch_array($tests_sql)) {
@@ -180,15 +181,15 @@ if (mysqli_num_rows($tests_sql) > 0) {
                         <b> Date Test Done     : </b>    ' . $tests['patient_test_date_created'] . ' 
                     </p>
                      ';
-                    /* Get Chief Lab Techician Details */
-                    $approver_sql = mysqli_query(
-                        $mysqli,
-                        "SELECT *  FROM users WHERE user_id = '{$tests['results_approved_by']}'"
-                    );
-                    if (mysqli_num_rows($approver_sql) > 0) {
-                        while ($chief_lab_tech = mysqli_fetch_array($approver_sql)) {
-                            $html .= 
-                            ' 
+        /* Get Chief Lab Techician Details */
+        $approver_sql = mysqli_query(
+            $mysqli,
+            "SELECT *  FROM users WHERE user_id = '{$tests['results_approved_by']}'"
+        );
+        if (mysqli_num_rows($approver_sql) > 0) {
+            while ($chief_lab_tech = mysqli_fetch_array($approver_sql)) {
+                $html .=
+                    ' 
                                 <p class="appointment_details list_header">
                                     <b> Date Released               : </b>    ' . $tests['results_date_realeased'] . '<br>
                                     <b> Approved By Number     : </b>    ' . $chief_lab_tech['user_number'] . ' <br>
@@ -196,15 +197,15 @@ if (mysqli_num_rows($tests_sql) > 0) {
                                     <b> Digital Signature Code : </b>    SGN-' . $paycode . ' <br>
                                 </p>          
                             ';
-                        }
-                    } else {
-                        $html .= ' 
+            }
+        } else {
+            $html .= ' 
                         <p class="appointment_details list_header">
                             <b>Results Pending Approval From Chief Laboratory Technician</b>
                         </p>     
                     ';
-                    }
-                    $html .= ' 
+        }
+        $html .= ' 
                 </div> 
                 <br><br><br><br><br><br>
                 
