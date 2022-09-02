@@ -127,6 +127,9 @@ require_once('../app/partials/head.php');
                                                             </p>
                                                             <div class="text-right">
                                                                 <br>
+                                                                <a data-toggle="modal" href="#add_results_<?php echo $tests['patient_test_id']; ?>" class="badge badge-success">
+                                                                    <i class="fa fa-check"></i> Add Results
+                                                                </a>
                                                                 <a data-toggle="modal" href="#update_<?php echo $tests['patient_test_id']; ?>" class="badge badge-warning">
                                                                     <i class="fa fa-pencil-alt"></i> Edit
                                                                 </a>

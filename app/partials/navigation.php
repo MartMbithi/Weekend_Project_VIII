@@ -77,11 +77,6 @@
                     </li><!-- /Level Menu -->
                 </ul><!-- /.navbar-nav -->
                 <!-- .top-bar-search -->
-                <form class="top-bar-search d-lg-inline-block w-auto my-2 my-lg-0 px-0 px-lg-2" action="search_results">
-                    <div class="input-group input-group-search">
-                        <input class="form-control" type="search" placeholder="Search Patient" aria-label="Search">
-                    </div>
-                </form><!-- /.top-bar-search -->
                 <!-- .btn-account -->
                 <div class="navbar-nav dropdown d-flex mr-lg-n3">
                     <button class="btn-account w-100" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="user-avatar user-avatar-md mr-lg-0">
