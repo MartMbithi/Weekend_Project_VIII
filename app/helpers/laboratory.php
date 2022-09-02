@@ -102,3 +102,57 @@ if (isset($_POST['Delete_Patient_Tests_record'])) {
         $err = "Failed, please try again";
     }
 }
+
+
+/* -----------------------  Results  --------------------------------------------*/
+
+/* Add Results */
+if (isset($_POST['Add_Patient_Tests_Results'])) {
+    $results_test_id = mysqli_real_escape_string($mysqli, $_POST['results_test_id']);
+    $results_details = mysqli_real_escape_string($mysqli, $_POST['results_details']);
+    $results_date_realeased = mysqli_real_escape_string($mysqli, $_POST['results_date_realeased']);
+    $results_approved_by = mysqli_real_escape_string($mysqli, $_POST['results_approved_by']);
+    $patient_test_status = mysqli_real_escape_string($mysqli, '1');
+
+    /* Persist */
+    $results_sql = "INSERT INTO results (results_test_id, results_details, results_date_realeased, results_approved_by) 
+    VALUES('{$results_test_id}', '{$results_details}', '{$results_date_realeased}', '{$results_approved_by}')";
+
+    $status_sql = "UPDATE patient_tests SET patient_test_status = '{$patient_test_status}' WHERE patient_test_id = '{$results_test_id}'";
+
+    if (mysqli_query($mysqli, $results_sql) && mysqli_query($mysqli, $status_sql)) {
+        $success = "Results added";
+    } else {
+        $err = "Failed, please try again";
+    }
+}
+
+
+/* Update Results */
+if (isset($_POST['Update_Patient_Tests_Results'])) {
+    $result_id  = mysqli_real_escape_string($mysqli, $_POST['result_id']);
+    $results_details = mysqli_real_escape_string($mysqli, $_POST['results_details']);
+
+    /* Persist */
+    $sql = "UPDATE results SET results_details = '{$results_details}' WHERE results_id = '{$result_id}'";
+
+    if (mysqli_query($mysqli, $sql)) {
+        $sql = "Results updated";
+    } else {
+        $err = "Failed, please try again";
+    }
+}
+
+/* Delete Results */
+if (isset($_POST['Update_Patient_Tests_Results'])) {
+    $result_id  = mysqli_real_escape_string($mysqli, $_POST['result_id']);
+
+    /* Persist */
+    $sql = "DELETE FROM results WHERE result_id = '{$result_id}'";
+
+    if (mysqli_query($mysqli, $sql)) {
+        $success = "Results deleted";
+    } else {
+        $err = "Failed, Please try again";
+    }
+}
