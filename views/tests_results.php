@@ -87,8 +87,14 @@ require_once('../app/partials/head.php');
                                                                                 <span class=""><b>Results Approved By Name: </b> <?php echo $chief_lab_tech['user_full_names']; ?></span><br>
                                                                             </p>
                                                                         </div>
-                                                                <?php }
-                                                                } ?>
+                                                                    <?php }
+                                                                } else { ?>
+                                                                    <div class="p-2 bd-highlight">
+                                                                        <p class="lead">
+                                                                            <span class="text-danger"><b>Results Pending Approval From Chief Laboratory Technician</b></span><br>
+                                                                        </p>
+                                                                    </div>
+                                                                <?php } ?>
                                                             </div>
                                                             <hr>
                                                             <p class="">
@@ -102,6 +108,11 @@ require_once('../app/partials/head.php');
                                                             </p>
                                                             <div class="text-right">
                                                                 <br>
+                                                                <?php if ($tests['results_approved_by'] == '') { ?>
+                                                                    <a data-toggle="modal" href="#approve_<?php echo $tests['patient_test_id']; ?>" class="badge badge-primary">
+                                                                        <i class="fa fa-check"></i> Approve
+                                                                    </a>
+                                                                <?php } ?>
                                                                 <a data-toggle="modal" href="#update_<?php echo $tests['patient_test_id']; ?>" class="badge badge-success">
                                                                     <i class="fa fa-print"></i> Print
                                                                 </a>
@@ -165,6 +176,31 @@ require_once('../app/partials/head.php');
                                                                         <input type="hidden" name="result_id" value="<?php echo $tests['result_id']; ?>">
                                                                         <button type="button" class="text-center btn btn-success" data-dismiss="modal">No</button>
                                                                         <input type="submit" name="Delete_Patient_Tests_Results" value="Delete" class="text-center btn btn-danger"><br>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Approve Modal -->
+                                                    <div class="modal fade" id="approve_<?php echo $tests['patient_test_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">CONFIRM APPROVE</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal">
+                                                                        <span>&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <form method="POST">
+                                                                    <div class="modal-body text-center text-danger">
+                                                                        <h4>Approve This Results Record? </h4>
+                                                                        <br>
+                                                                        <!-- Hide This -->
+                                                                        <input type="hidden" name="results_approved_by" value="<?php echo $_SESSION['user_id']; ?>">
+                                                                        <input type="hidden" name="result_id" value="<?php echo $tests['result_id']; ?>">
+                                                                        <button type="button" class="text-center btn btn-success" data-dismiss="modal">No</button>
+                                                                        <input type="submit" name="Approve_Patient_Tests_Results" value="Delete" class="text-center btn btn-danger"><br>
                                                                     </div>
                                                                 </form>
                                                             </div>

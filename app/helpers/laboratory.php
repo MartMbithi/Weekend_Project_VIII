@@ -143,6 +143,20 @@ if (isset($_POST['Update_Patient_Tests_Results'])) {
     }
 }
 
+/* Approve Lab Results */
+if (isset($_POST['Approve_Patient_Tests_Results'])) {
+    $results_approved_by = mysqli_real_escape_string($mysqli, $_POST['results_approved_by']);
+    $result_id = mysqli_real_escape_string($mysqli, $_POST['result_id']);
+
+    /* Persist */
+    $sql  = "UPDATE results SET results_approved_by = '{$results_approved_by}' WHERE result_id = '{$result_id}'";
+    if (mysqli_query($mysqli, $sql)) {
+        $success = "Results Approved";
+    } else {
+        $err = "Failed, please try again";
+    }
+}
+
 /* Delete Results */
 if (isset($_POST['Delete_Patient_Tests_Results'])) {
     $result_id  = mysqli_real_escape_string($mysqli, $_POST['result_id']);

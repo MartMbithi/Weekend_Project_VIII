@@ -34,7 +34,7 @@ $stmt->fetch();
 $stmt->close();
 
 /* Pending Approval Lab Tests */
-$query = "SELECT COUNT(*)  FROM results WHERE results_approved_by = '' ";
+$query = "SELECT COUNT(*)  FROM results WHERE ISNULL(results_approved_by) ";
 $stmt = $mysqli->prepare($query);
 $stmt->execute();
 $stmt->bind_result($pending_approval);
