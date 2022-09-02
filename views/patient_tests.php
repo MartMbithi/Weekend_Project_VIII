@@ -127,9 +127,11 @@ require_once('../app/partials/head.php');
                                                             </p>
                                                             <div class="text-right">
                                                                 <br>
-                                                                <a data-toggle="modal" href="#add_results_<?php echo $tests['patient_test_id']; ?>" class="badge badge-success">
-                                                                    <i class="fa fa-check"></i> Add Results
-                                                                </a>
+                                                                <?php if ($tests['patient_test_status'] == '0') { ?>
+                                                                    <a data-toggle="modal" href="#add_results_<?php echo $tests['patient_test_id']; ?>" class="badge badge-success">
+                                                                        <i class="fa fa-check"></i> Add Results
+                                                                    </a>
+                                                                <?php } ?>
                                                                 <a data-toggle="modal" href="#update_<?php echo $tests['patient_test_id']; ?>" class="badge badge-warning">
                                                                     <i class="fa fa-pencil-alt"></i> Edit
                                                                 </a>
@@ -138,6 +140,40 @@ require_once('../app/partials/head.php');
                                                                 </a>
                                                             </div>
 
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Add Results Modal -->
+                                                    <div class="modal fade fixed-right" id="add_results_<?php echo $tests['patient_test_id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                                                        <div class="modal-dialog  modal-xl" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header align-items-center">
+                                                                    <div class="modal-title">
+                                                                        <h6 class="mb-0">Add Results For <?php echo $tests['user_full_names']; ?> Test Record</h6>
+                                                                    </div>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form method="post" enctype="multipart/form-data" role="form">
+                                                                        <div class="row">
+                                                                            <!-- Hidden Values -->
+                                                                            <input name="results_test_id" type="hidden" value="<?php echo $tests['patient_test_id']; ?>">
+                                                                            <input name="results_approved_by" type="hidden" value="<?php echo $_SESSION['user_id']; ?>">
+                                                                            <input name="results_date_realeased" type="hidden" value="<?php echo date('d M Y'); ?>">
+                                                                            <div class="form-group col-md-12">
+                                                                                <label for="">Tests Results Details</label>
+                                                                                <textarea type="text" name="results_details" rows="5" class="form-control" id="exampleInputEmail1"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="text-right">
+                                                                            <button type="submit" name="Add_Patient_Tests_Results" class="btn btn-primary">Add Results</button>
+                                                                        </div>
+                                                                        <br>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <!-- Update Modal -->
