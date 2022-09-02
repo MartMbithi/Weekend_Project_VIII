@@ -40,3 +40,11 @@ $stmt->execute();
 $stmt->bind_result($pending_approval);
 $stmt->fetch();
 $stmt->close();
+
+/* Results */
+$query = "SELECT COUNT(*)  FROM results ";
+$stmt = $mysqli->prepare($query);
+$stmt->execute();
+$stmt->bind_result($results);
+$stmt->fetch();
+$stmt->close();

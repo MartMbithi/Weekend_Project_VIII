@@ -198,13 +198,7 @@ if (mysqli_num_rows($tests_sql) > 0) {
                                 </p>          
                             ';
             }
-        } else {
-            $html .= ' 
-                        <p class="appointment_details list_header">
-                            <b>Results Pending Approval From Chief Laboratory Technician</b>
-                        </p>     
-                    ';
-        }
+        } 
         $html .= ' 
                 </div> 
                 <br><br><br><br><br><br>

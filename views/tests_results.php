@@ -122,13 +122,15 @@ require_once('../app/partials/head.php');
                                                                     <a href="print_results?view=<?php echo $tests['patient_test_id']; ?>" class="badge badge-success">
                                                                         <i class="fa fa-print"></i> Print
                                                                     </a>
-                                                                    <a data-toggle="modal" href="#update_<?php echo $tests['patient_test_id']; ?>" class="badge badge-warning">
-                                                                        <i class="fa fa-pencil-alt"></i> Edit
-                                                                    </a>
-                                                                    <a data-toggle="modal" href="#delete_<?php echo $tests['patient_test_id']; ?>" class="badge badge-danger">
-                                                                        <i class="far fa-trash-alt"></i> Delete
-                                                                    </a>
-                                                                <?php } ?>
+                                                                    <?php if ($user_access_level == 'Chief Lab Technician') { ?>
+                                                                        <a data-toggle="modal" href="#update_<?php echo $tests['patient_test_id']; ?>" class="badge badge-warning">
+                                                                            <i class="fa fa-pencil-alt"></i> Edit
+                                                                        </a>
+                                                                        <a data-toggle="modal" href="#delete_<?php echo $tests['patient_test_id']; ?>" class="badge badge-danger">
+                                                                            <i class="far fa-trash-alt"></i> Delete
+                                                                        </a>
+                                                                <?php }
+                                                                } ?>
 
                                                             </div>
                                                         </div>
