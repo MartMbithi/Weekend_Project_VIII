@@ -112,7 +112,37 @@ require_once('../app/partials/head.php');
                                                                     <i class="far fa-trash-alt"></i> Delete
                                                                 </a>
                                                             </div>
-
+                                                        </div>
+                                                    </div>
+                                                    <!-- Update Results -->
+                                                    <div class="modal fade fixed-right" id="update_<?php echo $tests['patient_test_id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                                                        <div class="modal-dialog  modal-xl" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header align-items-center">
+                                                                    <div class="modal-title">
+                                                                        <h6 class="mb-0">Update <?php echo $tests['user_full_names']; ?> Test Record</h6>
+                                                                    </div>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form method="post" enctype="multipart/form-data" role="form">
+                                                                        <div class="row">
+                                                                            <div class="form-group col-md-12">
+                                                                                <label for="">Details</label>
+                                                                                <!-- Hidden Values -->
+                                                                                <input type="hidden" name="result_id" value="<?php echo $tests['result_id']; ?>">
+                                                                                <textarea type="text" name="results_details" rows="10" class="form-control" id="exampleInputEmail1"><?php echo $tests['results_details']; ?></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="text-right">
+                                                                            <button type="submit" name="Update_Patient_Tests_Results" class="btn btn-primary">Update</button>
+                                                                        </div>
+                                                                        <br>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
 

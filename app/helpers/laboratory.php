@@ -134,10 +134,10 @@ if (isset($_POST['Update_Patient_Tests_Results'])) {
     $results_details = mysqli_real_escape_string($mysqli, $_POST['results_details']);
 
     /* Persist */
-    $sql = "UPDATE results SET results_details = '{$results_details}' WHERE results_id = '{$result_id}'";
+    $sql = "UPDATE results SET results_details = '{$results_details}' WHERE result_id = '{$result_id}'";
 
     if (mysqli_query($mysqli, $sql)) {
-        $sql = "Results updated";
+        $success = "Results updated";
     } else {
         $err = "Failed, please try again";
     }
