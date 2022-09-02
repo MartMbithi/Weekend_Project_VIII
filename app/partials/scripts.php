@@ -52,6 +52,23 @@
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
     }
+    /* Search And Filter Function */
+    /* Filter And Search Algorithm */
+    function FilterFunction() {
+        let input = document.getElementById('Search_Querry').value
+        input = input.toLowerCase();
+        let x = document.getElementsByClassName('Search_Result');
+        /* Perform Magic Here */
+        for (i = 0; i < x.length; i++) {
+            if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                x[i].style.display = "none";
+            } else if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                x[i].style.display = "none";
+            } else {
+                x[i].style.display = "";
+            }
+        }
+    }
 </script>
 <!-- BEGIN THEME JS -->
 <script src="../assets/javascript/theme.min.js"></script>

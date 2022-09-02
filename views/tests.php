@@ -82,7 +82,7 @@ require_once('../app/partials/head.php');
                                 <div class="section-block">
                                     <div class="d-flex justify-content-center align-items-center">
                                         <form class="form-inline">
-                                            <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Search Lab Test">
+                                            <input id="Search_Querry" onkeyup="FilterFunction()" type="text" class="form-control mb-2 mr-sm-2" placeholder="Search Lab Test">
                                         </form>
                                     </div>
                                     <!-- metric row -->
@@ -93,7 +93,7 @@ require_once('../app/partials/head.php');
                                             while ($tests = mysqli_fetch_array($tests_sql)) {
                                         ?>
                                                 <div class="col-12">
-                                                    <div class="card">
+                                                    <div class="card Search_Result">
                                                         <div class="card-body">
                                                             <p class="lead">
                                                                 <span class=""><b>REF: </b> <?php echo $tests['test_ref']; ?></span><br>
@@ -151,8 +151,8 @@ require_once('../app/partials/head.php');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                     <!-- Delete Modal-->
-                                                     <div class="modal fade" id="delete_<?php echo $tests['test_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <!-- Delete Modal-->
+                                                    <div class="modal fade" id="delete_<?php echo $tests['test_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -172,7 +172,7 @@ require_once('../app/partials/head.php');
                                                                 </form>
                                                             </div>
                                                         </div>
-                                                    </div>                                                   
+                                                    </div>
                                                 </div>
                                             <?php }
                                         } else { ?>
