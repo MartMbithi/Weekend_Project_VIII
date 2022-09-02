@@ -116,40 +116,6 @@ require_once('../app/partials/head.php');
                                                         </div>
                                                     </div>
 
-                                                    <!-- Add Results Modal -->
-                                                    <div class="modal fade fixed-right" id="add_results_<?php echo $tests['patient_test_id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
-                                                        <div class="modal-dialog  modal-xl" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header align-items-center">
-                                                                    <div class="modal-title">
-                                                                        <h6 class="mb-0">Add Results For <?php echo $tests['user_full_names']; ?> Test Record</h6>
-                                                                    </div>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <form method="post" enctype="multipart/form-data" role="form">
-                                                                        <div class="row">
-                                                                            <!-- Hidden Values -->
-                                                                            <input name="results_test_id" type="hidden" value="<?php echo $tests['patient_test_id']; ?>">
-                                                                            <input name="results_approved_by" type="hidden" value="<?php echo $_SESSION['user_id']; ?>">
-                                                                            <input name="results_date_realeased" type="hidden" value="<?php echo date('d M Y'); ?>">
-                                                                            <div class="form-group col-md-12">
-                                                                                <label for="">Tests Results Details</label>
-                                                                                <textarea type="text" name="results_details" rows="5" class="form-control" id="exampleInputEmail1"></textarea>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="text-right">
-                                                                            <button type="submit" name="Add_Patient_Tests_Results" class="btn btn-primary">Add Results</button>
-                                                                        </div>
-                                                                        <br>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
                                                     <!-- Delete Modal-->
                                                     <div class="modal fade" id="delete_<?php echo $tests['patient_test_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -162,12 +128,13 @@ require_once('../app/partials/head.php');
                                                                 </div>
                                                                 <form method="POST">
                                                                     <div class="modal-body text-center text-danger">
-                                                                        <h4>Delete <?php echo $tests['user_full_names']; ?> Test Record? </h4>
+                                                                        <h4>Delete This Results Record? </h4>
                                                                         <br>
                                                                         <!-- Hide This -->
-                                                                        <input type="hidden" name="patient_test_id" value="<?php echo $tests['patient_test_id']; ?>">
+                                                                        <input type="hidden" name="results_test_id" value="<?php echo $tests['results_test_id']; ?>">
+                                                                        <input type="hidden" name="result_id" value="<?php echo $tests['result_id']; ?>">
                                                                         <button type="button" class="text-center btn btn-success" data-dismiss="modal">No</button>
-                                                                        <input type="submit" name="Delete_Patient_Tests_record" value="Delete" class="text-center btn btn-danger"><br>
+                                                                        <input type="submit" name="Delete_Patient_Tests_Results" value="Delete" class="text-center btn btn-danger"><br>
                                                                     </div>
                                                                 </form>
                                                             </div>

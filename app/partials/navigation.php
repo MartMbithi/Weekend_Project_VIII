@@ -64,15 +64,6 @@
                             <li>
                                 <a class="dropdown-item" href="report_chief_lab_technicians">Chief Lab Technicians</a>
                             </li>
-                            <li>
-                                <a class="dropdown-item" href="report_test_categories">Test Categories</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="report_patient_tets">Patient Tests</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="report_lab_results">Lab Results</a>
-                            </li>
                         </ul>
                     </li><!-- /Level Menu -->
                 </ul><!-- /.navbar-nav -->

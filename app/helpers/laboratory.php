@@ -144,13 +144,16 @@ if (isset($_POST['Update_Patient_Tests_Results'])) {
 }
 
 /* Delete Results */
-if (isset($_POST['Update_Patient_Tests_Results'])) {
+if (isset($_POST['Delete_Patient_Tests_Results'])) {
     $result_id  = mysqli_real_escape_string($mysqli, $_POST['result_id']);
+    $results_test_id = mysqli_real_escape_string($mysqli, $_POST['results_test_id']);
 
     /* Persist */
     $sql = "DELETE FROM results WHERE result_id = '{$result_id}'";
+    $status_sql = "UPDATE patient_tests SET patient_test_status = '0'  WHERE patient_test_id  = '{$results_test_id}'";
 
-    if (mysqli_query($mysqli, $sql)) {
+
+    if (mysqli_query($mysqli, $sql) && mysqli_query($mysqli, $sql)) {
         $success = "Results deleted";
     } else {
         $err = "Failed, Please try again";
