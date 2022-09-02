@@ -29,7 +29,7 @@ require_once('../app/partials/head.php');
                             <header class="page-title-bar">
                                 <div class="d-flex flex-column flex-md-row">
                                     <p class="lead">
-                                        <span class="font-weight-bold">Patients Reports</span>
+                                        <span class="font-weight-bold">Receptionists Reports</span>
                                     </p>
                                     <div class="ml-auto">
                                     </div>
@@ -57,18 +57,17 @@ require_once('../app/partials/head.php');
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        $patients_sql = mysqli_query($mysqli, "SELECT * FROM users WHERE user_access_level = 'Patient'");
-                                                        if (mysqli_num_rows($patients_sql) > 0) {
-                                                            while ($patients = mysqli_fetch_array($patients_sql)) {
+                                                        $receptionists_sql = mysqli_query($mysqli, "SELECT * FROM users WHERE user_access_level = 'Receptionist'");
+                                                        if (mysqli_num_rows($receptionists_sql) > 0) {
+                                                            while ($receptionist = mysqli_fetch_array($receptionists_sql)) {
                                                         ?>
                                                                 <tr>
-                                                                    <td><?php echo $patients['user_number']; ?></td>
-                                                                    <td><?php echo $patients['user_full_names']; ?></td>
-                                                                    <td><?php echo $patients['user_idno']; ?></td>
-                                                                    <td><?php echo $patients['user_phone_number']; ?></td>
-                                                                    <td><?php echo $patients['user_address']; ?></td>
+                                                                    <td><?php echo $receptionist['user_number']; ?></td>
+                                                                    <td><?php echo $receptionist['user_full_names']; ?></td>
+                                                                    <td><?php echo $receptionist['user_idno']; ?></td>
+                                                                    <td><?php echo $receptionist['user_phone_number']; ?></td>
+                                                                    <td><?php echo $receptionist['user_address']; ?></td>
                                                                 </tr>
-
                                                         <?php }
                                                         } ?>
                                                     </tbody>
