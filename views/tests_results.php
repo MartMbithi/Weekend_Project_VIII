@@ -113,7 +113,7 @@ require_once('../app/partials/head.php');
                                                                         <i class="fa fa-check"></i> Approve
                                                                     </a>
                                                                 <?php } ?>
-                                                                <a data-toggle="modal" href="#update_<?php echo $tests['patient_test_id']; ?>" class="badge badge-success">
+                                                                <a href="print_results?view=<?php echo $tests['patient_test_id']; ?>" class="badge badge-success">
                                                                     <i class="fa fa-print"></i> Print
                                                                 </a>
                                                                 <a data-toggle="modal" href="#update_<?php echo $tests['patient_test_id']; ?>" class="badge badge-warning">
