@@ -52,7 +52,8 @@ require_once('../app/partials/head.php');
                                             "SELECT *  FROM results r 
                                             INNER JOIN patient_tests pt ON r.results_test_id = pt.patient_test_id
                                             INNER JOIN tests t ON t.test_id = pt.patient_test_test_id
-                                            INNER JOIN users u ON u.user_id = pt.patient_test_patient_id"
+                                            INNER JOIN users u ON u.user_id = pt.patient_test_patient_id
+                                            ORDER BY results_date_realeased DESC "
                                         );
                                         if (mysqli_num_rows($tests_sql) > 0) {
                                             while ($tests = mysqli_fetch_array($tests_sql)) {
