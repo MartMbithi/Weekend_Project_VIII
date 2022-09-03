@@ -23,6 +23,8 @@ if (isset($_POST['Login'])) {
         header("location:dashboard");
     } elseif ($rs && $user_access_level == "Receptionist") {
         header("location:reception_home");
+    } elseif ($rs && $user_access_level == "Patient") {
+        header("location:my_home");
     } else {
         $err = "Incorrect login username or password";
     }
