@@ -187,9 +187,10 @@ if (isset($_POST['Delete_Patient_Tests_Results'])) {
     $status_sql = "UPDATE patient_tests SET patient_test_status = '0'  WHERE patient_test_id  = '{$results_test_id}'";
 
 
-    if (mysqli_query($mysqli, $sql) && mysqli_query($mysqli, $sql)) {
+    if (mysqli_query($mysqli, $sql) && mysqli_query($mysqli, $status_sql)) {
         $success = "Results deleted";
     } else {
         $err = "Failed, Please try again";
     }
 }
+
