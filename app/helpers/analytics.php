@@ -83,10 +83,10 @@ if ($user_access_level == 'Chief Lab Technician' || $user_access_level == 'Recep
 
     /* Pending Approval Results */
     $query = "SELECT COUNT(*)  FROM results r INNER JOIN patient_tests pt ON pt.patient_test_id = r.results_test_id
-    WHERE pt.patient_test_patient_id = '{$user_id}'  AND ISNULL(results_approved_by) ";
+    WHERE pt.patient_test_patient_id = '{$user_id}'  AND ISNULL(r.results_approved_by) ";
     $stmt = $mysqli->prepare($query);
     $stmt->execute();
-    $stmt->bind_result($pending_results);
+    $stmt->bind_result($pending_approval);
     $stmt->fetch();
     $stmt->close();
 }
