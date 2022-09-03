@@ -31,6 +31,38 @@ if (isset($_POST['Add_Patient'])) {
     }
 }
 
+/* Add Patient By Receptionist */
+if (isset($_POST['Add_Patient_By_Receptionist'])) {
+    $user_full_names = mysqli_real_escape_string($mysqli, $_POST['user_full_names']);
+    $user_number = mysqli_real_escape_string($mysqli, $_POST['user_number']);
+    $user_idno = mysqli_real_escape_string($mysqli, $_POST['user_idno']);
+    $user_phone_number = mysqli_real_escape_string($mysqli, $_POST['user_phone_number']);
+    $user_address = mysqli_real_escape_string($mysqli, $_POST['user_address']);
+    $user_access_level = mysqli_real_escape_string($mysqli, $_POST['user_access_level']);
+
+    /* Prevent Double Entries */
+    $sql = "SELECT * FROM  users   WHERE user_phone_number ='{$user_phone_number}' ";
+    $res = mysqli_query($mysqli, $sql);
+    if (mysqli_num_rows($res) > 0) {
+        $row = mysqli_fetch_assoc($res);
+        if (
+            $user_phone_number == $row['user_phone_number']
+        ) {
+            $err = 'Contacts already exists';
+        }
+    } else {
+        /* Persist */
+        $sql = "INSERT INTO users (user_full_names, user_number, user_idno, user_phone_number, user_address, user_access_level)
+        VALUES('{$user_full_names}', '{$user_number}', '{$user_idno}', '{$user_phone_number}', '{$user_address}', '{$user_access_level}')";
+
+        if (mysqli_query($mysqli, $sql)) {
+            $success = "Patient registered";
+        } else {
+            $err  = "Failed, please try again";
+        }
+    }
+}
+
 /* Update Patient */
 if (isset($_POST['Update_Patient'])) {
     $user_id = mysqli_real_escape_string($mysqli, $_POST['user_id']);

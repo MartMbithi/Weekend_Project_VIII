@@ -166,7 +166,7 @@ if ($user_access_level == 'Chief Lab Technician') {
             <!-- .container -->
             <div class="container">
                 <!-- .navbar-brand -->
-                <a class="navbar-brand" href="dashboard">
+                <a class="navbar-brand" href="reception_home">
                     MLR System
                 </a>
                 <button class="hamburger hamburger-squeeze d-flex d-lg-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button> <!-- .navbar-collapse -->
