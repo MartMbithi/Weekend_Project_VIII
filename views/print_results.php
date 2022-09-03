@@ -161,7 +161,7 @@ if (mysqli_num_rows($tests_sql) > 0) {
             <div class="pagebreak">
             <div class="footer letter_head list_header">
                 <hr>
-                <b>Printed On ' . date('d M Y') . '</b>
+                <b>This Is A System Generated Document. Valid Only  If It Bares Digital Signature Code. Printed On ' . date('d M Y') . '</b>
             </div>
             <body>
                 <h3 class="list_header letter_head" align="center">
