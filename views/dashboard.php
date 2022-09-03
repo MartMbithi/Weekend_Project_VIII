@@ -129,7 +129,7 @@ require_once('../app/partials/head.php');
                                                         <a href="technician_patient_tests" class="metric metric-bordered align-items-center">
                                                             <h2 class="metric-label">Registered Lab Tests</h2>
                                                             <p class="metric-value h3">
-                                                                <span class="value"><?php echo $tests; ?></span>
+                                                                <span class="value"><?php echo $patient_tests; ?></span>
                                                             </p>
                                                         </a> <!-- /.metric -->
                                                     </div>

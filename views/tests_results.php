@@ -109,24 +109,24 @@ require_once('../app/partials/head.php');
                                                             <div class="text-right">
                                                                 <br>
                                                                 <?php if ($tests['results_approved_by'] == '') { ?>
-                                                                    <a data-toggle="modal" href="#approve_<?php echo $tests['patient_test_id']; ?>" class="badge badge-primary">
+                                                                    <a data-toggle="modal" href="#approve_<?php echo $tests['result_id']; ?>" class="badge badge-primary">
                                                                         <i class="fa fa-check"></i> Approve
                                                                     </a>
-                                                                    <a data-toggle="modal" href="#update_<?php echo $tests['patient_test_id']; ?>" class="badge badge-warning">
+                                                                    <a data-toggle="modal" href="#update_<?php echo $tests['result_id']; ?>" class="badge badge-warning">
                                                                         <i class="fa fa-pencil-alt"></i> Edit
                                                                     </a>
-                                                                    <a data-toggle="modal" href="#delete_<?php echo $tests['patient_test_id']; ?>" class="badge badge-danger">
+                                                                    <a data-toggle="modal" href="#delete_<?php echo $tests['result_id']; ?>" class="badge badge-danger">
                                                                         <i class="far fa-trash-alt"></i> Delete
                                                                     </a>
                                                                 <?php } else { ?>
-                                                                    <a href="print_results?view=<?php echo $tests['patient_test_id']; ?>" class="badge badge-success">
+                                                                    <a href="print_results?view=<?php echo $tests['result_id']; ?>" class="badge badge-success">
                                                                         <i class="fa fa-print"></i> Print
                                                                     </a>
                                                                     <?php if ($user_access_level == 'Chief Lab Technician') { ?>
-                                                                        <a data-toggle="modal" href="#update_<?php echo $tests['patient_test_id']; ?>" class="badge badge-warning">
+                                                                        <a data-toggle="modal" href="#update_<?php echo $tests['result_id']; ?>" class="badge badge-warning">
                                                                             <i class="fa fa-pencil-alt"></i> Edit
                                                                         </a>
-                                                                        <a data-toggle="modal" href="#delete_<?php echo $tests['patient_test_id']; ?>" class="badge badge-danger">
+                                                                        <a data-toggle="modal" href="#delete_<?php echo $tests['result_id']; ?>" class="badge badge-danger">
                                                                             <i class="far fa-trash-alt"></i> Delete
                                                                         </a>
                                                                 <?php }
@@ -136,7 +136,7 @@ require_once('../app/partials/head.php');
                                                         </div>
                                                     </div>
                                                     <!-- Update Results -->
-                                                    <div class="modal fade fixed-right" id="update_<?php echo $tests['patient_test_id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                                                    <div class="modal fade fixed-right" id="update_<?php echo $tests['result_id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
                                                         <div class="modal-dialog  modal-xl" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header align-items-center">
@@ -168,7 +168,7 @@ require_once('../app/partials/head.php');
                                                     </div>
 
                                                     <!-- Delete Modal-->
-                                                    <div class="modal fade" id="delete_<?php echo $tests['patient_test_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="delete_<?php echo $tests['result_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -193,7 +193,7 @@ require_once('../app/partials/head.php');
                                                     </div>
 
                                                     <!-- Approve Modal -->
-                                                    <div class="modal fade" id="approve_<?php echo $tests['patient_test_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="approve_<?php echo $tests['result_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">

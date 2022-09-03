@@ -111,16 +111,16 @@ require_once('../app/partials/head.php');
                                                                 <?php
                                                                 if ($tests['results_approved_by'] != '')
                                                                 /* Dont Print Any Unapproved Results */ { ?>
-                                                                    <a href="print_results?view=<?php echo $tests['patient_test_id']; ?>" class="badge badge-success">
+                                                                    <a href="print_results?view=<?php echo $tests['result_id']; ?>" class="badge badge-success">
                                                                         <i class="fa fa-print"></i> Print
                                                                     </a>
                                                                 <?php } ?>
 
-                                                                <a data-toggle="modal" href="#update_<?php echo $tests['patient_test_id']; ?>" class="badge badge-warning">
+                                                                <a data-toggle="modal" href="#update_<?php echo $tests['result_id']; ?>" class="badge badge-warning">
                                                                     <i class="fa fa-pencil-alt"></i> Edit
                                                                 </a>
                                                                 <?php if ($user_access_level == 'Chief Lab Technician') { ?>
-                                                                    <a data-toggle="modal" href="#delete_<?php echo $tests['patient_test_id']; ?>" class="badge badge-danger">
+                                                                    <a data-toggle="modal" href="#delete_<?php echo $tests['result_id']; ?>" class="badge badge-danger">
                                                                         <i class="far fa-trash-alt"></i> Delete
                                                                     </a>
                                                                 <?php }
@@ -130,7 +130,7 @@ require_once('../app/partials/head.php');
                                                         </div>
                                                     </div>
                                                     <!-- Update Results -->
-                                                    <div class="modal fade fixed-right" id="update_<?php echo $tests['patient_test_id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                                                    <div class="modal fade fixed-right" id="update_<?php echo $tests['result_id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
                                                         <div class="modal-dialog  modal-xl" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header align-items-center">

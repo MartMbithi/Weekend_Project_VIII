@@ -48,3 +48,11 @@ $stmt->execute();
 $stmt->bind_result($results);
 $stmt->fetch();
 $stmt->close();
+
+/* Registered Lab Tests */
+$query = "SELECT COUNT(*)  FROM patient_tests ";
+$stmt = $mysqli->prepare($query);
+$stmt->execute();
+$stmt->bind_result($patient_tests);
+$stmt->fetch();
+$stmt->close();
