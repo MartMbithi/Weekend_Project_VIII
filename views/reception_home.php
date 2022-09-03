@@ -181,7 +181,7 @@ require_once('../app/partials/head.php');
                                                                         <div class="modal-content">
                                                                             <div class="modal-header align-items-center">
                                                                                 <div class="modal-title">
-                                                                                    <h6 class="mb-0">Add <?php echo $patients['user_full_name']; ?> Lab Test Record</h6>
+                                                                                    <h6 class="mb-0">Add <?php echo $patients['user_full_names']; ?> Lab Test Record</h6>
                                                                                 </div>
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                     <span aria-hidden="true">&times;</span>
@@ -193,7 +193,7 @@ require_once('../app/partials/head.php');
                                                                                         <div class="form-group col-md-6">
                                                                                             <label for="">Lab Technician Name</label>
                                                                                             <!-- Hide This -->
-                                                                                            <input type="hidden" name="patient_test_patient_id" value="<?php echo $patients['patient_id']; ?>">
+                                                                                            <input type="hidden" name="patient_test_patient_id" value="<?php echo $patients['user_id']; ?>">
                                                                                             <select type="text" required name="patient_test_done_by" class="form-control">
                                                                                                 <?php
                                                                                                 $technician_sql = mysqli_query($mysqli, "SELECT * FROM users WHERE user_access_level = 'Lab Technician'");
