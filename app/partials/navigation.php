@@ -123,10 +123,10 @@ if ($user_access_level == 'Chief Lab Technician') {
                             <a class="nav-link" href="tests">Test Categories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="patient_tests">Patient Tests</a>
+                            <a class="nav-link" href="technician_patient_tests">Patient Tests</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="tests_results">Results</a>
+                            <a class="nav-link" href="technician_tests_results">Results</a>
                         </li>
                     </ul><!-- /.navbar-nav -->
                     <!-- .top-bar-search -->

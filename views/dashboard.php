@@ -137,8 +137,8 @@ require_once('../app/partials/head.php');
                                                     <!-- metric column -->
                                                     <div class="col">
                                                         <!-- .metric -->
-                                                        <a href="tests_results" class="metric metric-bordered align-items-center">
-                                                            <h2 class="metric-label">  Results </h2>
+                                                        <a href="technician_tests_results" class="metric metric-bordered align-items-center">
+                                                            <h2 class="metric-label"> Results </h2>
                                                             <p class="metric-value h3">
                                                                 <span class="value"><?php echo $results; ?></span>
                                                             </p>
