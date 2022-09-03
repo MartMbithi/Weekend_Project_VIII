@@ -3,7 +3,7 @@ session_start();
 require_once('../app/settings/config.php');
 require_once('../app/settings/checklogin.php');
 check_login();
-require_once('../app/helpers/analytics.php');
+require_once('../app/helpers/patient_analytics.php');
 require_once('../app/partials/head.php');
 
 ?>
@@ -52,26 +52,16 @@ require_once('../app/partials/head.php');
                                                     <a href="my_tests" class="metric metric-bordered align-items-center">
                                                         <h2 class="metric-label">Lab Tests</h2>
                                                         <p class="metric-value h3">
+                                                            <span class="value"><?php echo $patient_results; ?></span>
+                                                        </p>
+                                                    </a> <!-- /.metric -->
+                                                </div><!-- /metric column -->
+                                                <div class="col">
+                                                    <!-- .metric -->
+                                                    <a href="my_results" class="metric metric-bordered align-items-center">
+                                                        <h2 class="metric-label">Lab Test Results</h2>
+                                                        <p class="metric-value h3">
                                                             <span class="value"><?php echo $patient_tests; ?></span>
-                                                        </p>
-                                                    </a> <!-- /.metric -->
-                                                </div><!-- /metric column -->
-                                                <div class="col">
-                                                    <!-- .metric -->
-                                                    <a href="my_results" class="metric metric-bordered align-items-center">
-                                                        <h2 class="metric-label">Results</h2>
-                                                        <p class="metric-value h3">
-                                                            <span class="value"><?php echo $results; ?></span>
-                                                        </p>
-                                                    </a> <!-- /.metric -->
-                                                </div><!-- /metric column -->
-                                                <!-- metric column -->
-                                                <div class="col">
-                                                    <!-- .metric -->
-                                                    <a href="my_results" class="metric metric-bordered align-items-center">
-                                                        <h2 class="metric-label"> Pending Approval Results </h2>
-                                                        <p class="metric-value h3">
-                                                            <span class="value"><?php echo $pending_approval; ?></span>
                                                         </p>
                                                     </a> <!-- /.metric -->
                                                 </div><!-- /metric column -->
