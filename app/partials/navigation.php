@@ -160,5 +160,58 @@ if ($user_access_level == 'Chief Lab Technician') {
         </nav><!-- /.navbar -->
     </header>
 <?php } else if ($user_access_level == 'Receptionist') { ?>
-
+    <header class="app-header app-header-dark">
+        <!-- .navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-lg-0">
+            <!-- .container -->
+            <div class="container">
+                <!-- .navbar-brand -->
+                <a class="navbar-brand" href="dashboard">
+                    MLR System
+                </a>
+                <button class="hamburger hamburger-squeeze d-flex d-lg-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button> <!-- .navbar-collapse -->
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <!-- .navbar-nav -->
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <!-- Dashboard -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="reception_home">Dashboard</a>
+                        </li><!-- /Dashboard -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="receptionist_tests">Test Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="receptionist_tests_results">Results</a>
+                        </li>
+                    </ul><!-- /.navbar-nav -->
+                    <!-- .top-bar-search -->
+                    <!-- .btn-account -->
+                    <div class="navbar-nav dropdown d-flex mr-lg-n3">
+                        <button class="btn-account w-100" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="user-avatar user-avatar-md mr-lg-0">
+                                <img src="../assets/images/avatars/no_profile.png" alt=""></span>
+                            <span class="account-summary d-lg-none">
+                                <span class="account-name">
+                                    <?php echo $_SESSION['user_full_names']; ?></span>
+                                <span class="account-description">
+                                    <?php echo $_SESSION['user_access_level']; ?>
+                                </span>
+                            </span>
+                        </button> <!-- .dropdown-menu -->
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-arrow mr-3"></div>
+                            <h6 class="dropdown-header d-none d-lg-block d-lg-none"><?php echo $_SESSION['user_full_names']; ?> </h6>
+                            <a class="dropdown-item" href="profile_settings">
+                                <span class="dropdown-icon oi oi-person"></span>
+                                Profile
+                            </a>
+                            <a class="dropdown-item" href="logout">
+                                <span class="dropdown-icon oi oi-account-logout"></span>
+                                Logout
+                            </a>
+                        </div><!-- /.dropdown-menu -->
+                    </div><!-- /.btn-account -->
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+    </header>
 <?php } ?>
